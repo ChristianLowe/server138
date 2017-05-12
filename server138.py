@@ -8,10 +8,8 @@ sock.listen(1)
 conn, addr = sock.accept()
 
 data = conn.recv(4096).decode("utf-8")
-print("Recieved: ", data)
 
 path = data.split()[1]
-print("Path: ", path)
 
 response = "HTTP/1.1 "
 body = ""
@@ -34,6 +32,5 @@ response += header("Content-Type", "text/html")
 response += "\r\n" + body
 conn.send(response.encode("utf-8"))
 
-print("Reponse: ", response)
 conn.close()
 
